@@ -345,7 +345,7 @@ process.on('unhandledRejection', (err, promise) => {
 //   "name": "WASABITO",
 //   "email": "admin@example.com",
 //   "role": "admin",
-//   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjM4MGQzMzRjMjNhNzE1MTU3MWY2ZCIsImlhdCI6MTc0NzE1NzIwMywiZXhwIjoxNzQ5NzQ5MjAzfQ.zMZirAbNGrxGucGX3UB0_uJA6lot9CJdgEJzLlLk65c"
+//   "token": ""
 // }
 
 
@@ -358,7 +358,7 @@ process.on('unhandledRejection', (err, promise) => {
 //     "name": "Admin User",
 //     "email": "admin@example.com",
 //     "role": "admin",
-//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Yzc3ZGRiODZhMDJkMmEwZDU1OTM4OCIsImlhdCI6MTc0MTEyNzEzMSwiZXhwIjoxNzQzNzE5MTMxfQ.-CoedFGY8UeJBIuM5UkRre2kTCC0I6guiDb2eHf_aLk"
+//     "token": ""
 // }
 
 
@@ -385,7 +385,7 @@ process.on('unhandledRejection', (err, promise) => {
 //     "name": "Admin User",
 //     "email": "admin@example.com",
 //     "role": "admin",
-//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3Yzc3ZGRiODZhMDJkMmEwZDU1OTM4OCIsImlhdCI6MTc0MTEyNzMxOCwiZXhwIjoxNzQzNzE5MzE4fQ.qUh4hUyTm4ubJDUMahAlw8g1JmJBsCkQcdY7WPAJP2c"
+//     "token": ""
 // }
 
 
