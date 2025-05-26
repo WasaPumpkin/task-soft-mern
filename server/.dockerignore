@@ -1,0 +1,4 @@
+# TASK-SOFT-MERN/server/.dockerignore
+node_modules
+.env
+npm-debug.log

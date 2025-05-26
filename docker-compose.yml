@@ -1,0 +1,50 @@
+# C:\Users\Andrey Desktop\Task-Soft-Mern\docker-compose.yml
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mern-mongodb-container
+    ports: ["27017:27017"]
+    volumes: [mongo-data:/data/db]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks: [mern-network]
+    restart: always
+
+  backend:
+    build: ./server
+    container_name: mern-backend-container
+    ports: ["7000:7000"]
+    env_file: ./server/.env
+    environment:
+      MONGO_URI: "mongodb+srv://admin:admin@mern-task.kzfpz.mongodb.net/TaskSoft-MERN"    
+      NODE_ENV: development
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+    networks: [mern-network]
+    restart: always
+
+  frontend:
+    build: ./client
+    container_name: mern-frontend-container
+    ports: ["80:80"]
+    env_file: ./client/.env
+    environment:
+      VITE_APP_API_BASE_URL: "http://backend:7000" # For dev, use localhost
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks: [mern-network]
+    restart: always
+
+networks:
+  mern-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
