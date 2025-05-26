@@ -323,7 +323,7 @@ process.on('unhandledRejection', (err, promise) => {
 // {
 //   "name": "Admin User",
 //   "email": "admin@example.com",
-//   "password": "12345678",
+//   "password": "",
 //   "role": "admin"
 // }
 
@@ -333,7 +333,7 @@ process.on('unhandledRejection', (err, promise) => {
 // {
 //   "name": "WASABITO",
 //   "email": "admin@example.com",
-//   "password": "Wasabito1223$",
+//   "password": "",
 //   "role": "admin"
 // }
 
@@ -373,7 +373,7 @@ process.on('unhandledRejection', (err, promise) => {
 
 // {
 //   "email": "admin@example.com",
-//   "password": "12345678"
+//   "password": ""
 // }
 
 /////// OUTPUT //////////
