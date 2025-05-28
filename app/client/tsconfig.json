@@ -1,0 +1,57 @@
+// //tsconfig.json
+// {
+//   "compilerOptions": {
+//     "target": "ES2020", // Target ES2020 for modern browsers
+//     "lib": ["DOM", "DOM.Iterable", "ES2020"], // Include DOM and ES2020 libraries
+//     "module": "ESNext", // Use ES modules
+//     "moduleResolution": "Node", // Use Node.js module resolution
+//     "jsx": "react-jsx", // Use React JSX
+//     "strict": true, // Enable strict type-checking
+//     "esModuleInterop": true, // Enable ES module interop
+//     "skipLibCheck": true, // Skip library checks
+//     "forceConsistentCasingInFileNames": true, // Ensure consistent file casing
+//     "noUnusedLocals": true, // Report unused locals
+//     "noUnusedParameters": true, // Report unused parameters
+//     "noFallthroughCasesInSwitch": true, // Report fallthrough cases in switch statements
+//     "noUncheckedIndexedAccess": true, // Check for undefined in indexed access
+//     "baseUrl": ".", // Base directory for module resolution
+//     "paths": {
+//       "@/*": ["src/*"] // Map @/ to src/ for module aliases
+//     },
+//     "types": ["jest"], // Include Jest types
+//     "outDir": "./dist", // Output directory for compiled files
+//     "rootDir": "./src" // Root directory for source files
+//   },
+//   "include": ["src/**/*", "src/jest.setup.ts"], // Include all files in the src directory
+//   "exclude": ["node_modules", "dist"] // Exclude node_modules and dist
+// }
+
+{
+  "compilerOptions": {
+    "target": "ES2020", // Target ES2020 for modern browsers
+    "lib": ["DOM", "DOM.Iterable", "ES2020"], // Include DOM and ES2020 libraries
+    "module": "ESNext", // Use ES modules
+    "moduleResolution": "Node", // Use Node.js module resolution
+    "jsx": "react-jsx", // Use React JSX
+    "strict": true, // Enable strict type-checking
+    "esModuleInterop": true, // Enable ES module interop
+    "skipLibCheck": true, // Skip library checks
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file casing
+    "noUnusedLocals": true, // Report unused locals
+    "noUnusedParameters": true, // Report unused parameters
+    "noFallthroughCasesInSwitch": true, // Report fallthrough cases in switch statements
+    "noUncheckedIndexedAccess": true, // Check for undefined in indexed access
+    "baseUrl": ".", // Base directory for module resolution
+    "paths": {
+      "@/*": ["src/*"], // Map @/ to src/ for module aliases
+      "@components/*": ["src/components/*"], // Add this for component aliases
+      "@features/*": ["src/features/*"], // Add this for feature aliases
+      "@img/*": ["src/img/*"] // Add this for image aliases
+    },
+    "types": ["jest"], // Include Jest types
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src" // Root directory for source files
+  },
+  "include": ["src/**/*", "src/jest.setup.ts"], // Include all files in the src directory
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist
+}

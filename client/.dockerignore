@@ -1,9 +1,0 @@
-node_modules
-npm-debug.log
-.env
-.git
-.gitignore
-Dockerfile
-README.md
-dist/ # <--- Make sure this is present to exclude the build output
-nginx/ # <--- Exclude the nginx folder itself from the main copy, as we copy specific files from it
