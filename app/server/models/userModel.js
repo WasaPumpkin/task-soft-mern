@@ -1,5 +1,5 @@
-// models/userModel.js
-// models/userModel.js
+// server/models/userModel.js
+
 import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema(

@@ -1,6 +1,5 @@
-//routes/taskRoutes.js
+//server/routes/taskRoutes.js
 
-// routes/taskRoutes.js
 import express from 'express';
 import {
   createTask,

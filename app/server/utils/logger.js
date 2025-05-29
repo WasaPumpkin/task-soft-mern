@@ -1,27 +1,42 @@
-// utils/logger.js
-import winston from 'winston';
+// server/utils/logger.js
 
-// Create a custom log format
+import winston from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
+
 const logFormat = winston.format.printf(({ timestamp, level, message }) => {
   return `${timestamp} [${level}]: ${message}`;
 });
 
-// Create a logger instance with different transports (console and file)
+const isProduction = process.env.NODE_ENV === 'production';
+
 const logger = winston.createLogger({
-  level: 'info', // Default log level
+  level: isProduction ? 'info' : 'debug',
   format: winston.format.combine(winston.format.timestamp(), logFormat),
   transports: [
-    // Log to console for development
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      ),
+    // Daily rotated logs
+    new DailyRotateFile({
+      filename: 'logs/%DATE%-app.log',
+      datePattern: 'YYYY-MM-DD',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d',
     }),
-    // Log to a file for production (can also be rotated with additional config)
-    new winston.transports.File({ filename: 'logs/app.log' }),
-  ],
+
+    // Separate error log file
+    new winston.transports.File({
+      filename: 'logs/error.log',
+      level: 'error',
+    }),
+
+    // Console logs only in development
+    !isProduction &&
+      new winston.transports.Console({
+        format: winston.format.combine(
+          winston.format.colorize(),
+          winston.format.simple()
+        ),
+      }),
+  ].filter(Boolean), // Remove false entries
 });
 
-// Export the logger
 export default logger;

@@ -1,5 +1,5 @@
-// controllers/userController.js
-// controllers/userController.js
+// server/controllers/userController.js
+
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/userModel.js';

@@ -1,16 +1,16 @@
 // src/components/organisms/TaskItem/TaskItem.tsx
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import type { AppDispatch } from '@features/store';
-import { completeTask, deleteTask, editTask } from '@features/tasks/taskThunks';
-import { getUserById } from '../../../services/userService';
-import TaskDetails from '@components/molecules/TaskDetails/TaskDetails';
 import TaskActions from '@components/molecules/TaskActions/TaskActions';
+import TaskDetails from '@components/molecules/TaskDetails/TaskDetails';
 import CompletionModal from '@components/organisms/CompletionModal/CompletionModal';
 import DeleteModal from '@components/organisms/DeleteModal/DeleteModal';
 import EditModal from '@components/organisms/EditModal/EditModal';
+import type { AppDispatch } from '@features/store';
+import { completeTask, deleteTask, editTask } from '@features/tasks/taskThunks';
 import { Task } from '@features/tasks/types';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { UserService } from '../../../services/userService';
 
 interface UserReference {
   _id: string;
@@ -23,7 +23,7 @@ interface TaskItemProps {
   employeeName?: string;
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({ task, userRole, }) => {
+const TaskItem: React.FC<TaskItemProps> = ({ task, userRole }) => {
   const dispatch = useDispatch<AppDispatch>();
   const [showCompletionModal, setShowCompletionModal] =
     useState<boolean>(false);
@@ -33,7 +33,6 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, userRole, }) => {
   const [editText, setEditText] = useState<string>(task.text);
   const [assignedUserName, setAssignedUserName] =
     useState<string>('Loading...');
-    
 
   // Type guard function
   function isUserObject(assignedTo: unknown): assignedTo is UserReference {
@@ -58,7 +57,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, userRole, }) => {
     const fetchUserName = async () => {
       try {
         const userId = getAssignedUserId(task.assignedTo);
-        const user = await getUserById(userId);
+        const user = await UserService.getUserById(userId);
         setAssignedUserName(user?.name || 'Unknown User');
       } catch (error) {
         console.error('Error fetching user details:', error);
@@ -68,7 +67,6 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, userRole, }) => {
 
     fetchUserName();
   }, [task.assignedTo]);
-
 
   const handleDelete = async () => {
     try {

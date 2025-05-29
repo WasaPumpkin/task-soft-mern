@@ -24,7 +24,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, error, loading }) => {
     >
       {() => (
         <Form className="auth__form" aria-label="Login Form">
-          <h2 className="auth__title">Log in</h2>
+          <h2 className="auth__title">Log inn</h2>
           {error && <ErrorMessage message={error} className="auth__error" />}
           <InputField
             label="Email"
@@ -44,7 +44,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, error, loading }) => {
           </Button>
           {/* Add the "Don't have an account? Register" link */}
           <p className="auth__text">
-            Don't have an account? <Link to="/register">Register</Link>
+            Don't have an account yet? <Link to="/register">Register</Link>
           </p>
         </Form>
       )}

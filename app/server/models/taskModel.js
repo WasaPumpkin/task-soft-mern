@@ -1,5 +1,6 @@
-// models/taskModel.js
-// models/taskModel.js
+
+// server/models/taskModel.js
+
 import mongoose from 'mongoose';
 
 const taskSchema = mongoose.Schema(

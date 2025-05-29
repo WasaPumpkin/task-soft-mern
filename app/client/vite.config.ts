@@ -15,6 +15,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/components'), // Define the alias
       '@features': path.resolve(__dirname, './src/features'), // Define the alias
       '@img': path.resolve(__dirname, './src/img'), // Add this for image aliases
+      '@api': path.resolve(__dirname, './src/api'), // ✅ FIXED
     },
   },
   css: {

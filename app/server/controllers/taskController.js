@@ -1,5 +1,5 @@
-// controllers/taskController.js
-// controllers/taskController.js
+// server/controllers/taskController.js
+
 import asyncHandler from 'express-async-handler';
 import Task from '../models/taskModel.js';
 
